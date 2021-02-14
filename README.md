@@ -3,7 +3,7 @@
 ## Related tools
 
 * [rqt_top](https://github.com/ros-visualization/rqt_top)
-* [rosmon](https://github.com/xqms/rosmon)]
+* [rosmon](https://github.com/xqms/rosmon)
 
 ## References
 
