@@ -1,7 +1,7 @@
 from setuptools import find_packages
 from setuptools import setup
 
-package_name = 'ros2top'
+package_name = 'ros2_top'
 
 setup(
     name=package_name,
@@ -10,17 +10,17 @@ setup(
     data_files=[
         ('share/' + package_name, ['package.xml']),
     ],
-    install_requires=['asciimatics', 'ros2cli', 'setuptools'],
+    install_requires=['asciimatics', 'setuptools'],
     zip_safe=True,
     maintainer='Hironori Fujimoto',
-    maintainer_email='broadbarredfirefish@gmail.com',
+    maintainer_email='fujimoto-weldyn@outlook.jp',
     url='https://github.com/fujimo-t/ros2top',
-    description='Top-like interface as a ros2cli command',
+    description='Top-like monitoring command for ROS2',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
-        'ros2cli.command': [
-            'top = ros2top.command.top:TopCommand',
+        'console_scripts': [
+            'ros2_top = ros2_top.ros2_top:main',
         ],
     },
 )

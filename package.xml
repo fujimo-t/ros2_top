@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>ros2top</name>
+  <name>ros2_top</name>
   <version>0.0.0</version>
-  <description>Top-like interface as a ros2cli command</description>
+  <description>Top-like monitoring tool for ROS2</description>
   <maintainer email="broadbarredfirefish@gmail.com">Hironori Fujimoto</maintainer>
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_python</buildtool_depend>
 
-  <exec_depend>ros2cli</exec_depend>
+  <exec_depend>rclpy</exec_depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
