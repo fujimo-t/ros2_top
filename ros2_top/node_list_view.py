@@ -9,4 +9,7 @@ class NodeListView(Frame):
                                            title = "Node List")
         self._model = model
 
-        self._list_box = MultiColumnListBox
+        self._list_box = MultiColumnListBox(2, 
+                                            ["1"], 
+                                            [("aa", 1), ("bb", 2)]
+                                            titles=["Name"])

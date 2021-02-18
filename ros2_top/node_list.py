@@ -1,17 +1,19 @@
+import rclpy
+import ros2node.api
+
 class NodeList:
     def __init__(self, node):
         self._node = node
             self._node_list = []
 
-        for name in self._node.get_node_names_and_namespaces():
-            node_info = new NodeInfo(node, name[0], name[1])
+        for node_name in get_node_names(node):
+            node_info = new NodeInfo(node, node_name)
             self._node_list.append(node_info)
 
 class NodeInfo:
-    def __init__(self, node, name, namespace):
+    def __init__(self, node, node_name):
         self._node = node
-        self.name = name
-        self.namespace = namespace
+        self.name = node_name
 
         self.count_publish_topics()
         self.count_subscribe_topics()
@@ -24,8 +26,8 @@ class NodeInfo:
         # Number of publish topic which has subscribers
         self.connected_publish_count = 0
         for topic in publish_topics:
-            if (self._node.get_subscriptions_info_by_topic(topic[0]) > 0):
-                connected_publish_count++;
+            if (self._node.count_subscribers(topic[0]) > 0):
+                self.connected_publish_count++;
 
     def count_subscribe_topics(self):
         subscribe_topics = self._node.get_subscriptions_info_by_topic(
@@ -35,6 +37,6 @@ class NodeInfo:
         # Number of publish topic which has subscribers
         self.connected_subscribe_count = 0
         for topic in subscribe_topics:
-            if (self._node.get_subscriptions_info_by_topic(topic[0]) > 0):
-                connected_subscribe_count++;
+            if (self._node.count_publishers(topic[0]) > 0):
+                self.connected_subscribe_count++;
 
