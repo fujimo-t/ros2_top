@@ -27,7 +27,7 @@ class Ros2Top(Node):
         # spin on another thread
         thread = Thread(target=rclpy.spin, args=(self,), daemon=True)
         thread.start()
-        
+
         rate = self.create_rate(frame_rate.value)
 
         with ManagedScreen() as screen:
@@ -36,8 +36,10 @@ class Ros2Top(Node):
             view.update_model(model)
 
             screen.set_scenes([Scene([view], -1)])
-            while True:
+            while rclpy.ok():
                 screen.draw_next_frame()
+                model = NodeListModel(self)
+                view.update_model(model)
                 rate.sleep()
 
 def main(args=None):
