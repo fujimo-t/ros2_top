@@ -1,5 +1,5 @@
 from asciimatics.screen import Screen
-from asciimatics.widgets import Frame, MultiColumnListBox, Layout
+from asciimatics.widgets import Frame, MultiColumnListBox, Layout, Widget
 
 from ros2top.model.node_list_model import NodeListModel
 
@@ -7,17 +7,17 @@ class NodeListView(Frame):
     def __init__(self, screen: Screen):
         super(NodeListView, self).__init__(
             screen,
-            screen.width, 
-            screen.height,
+            screen.height, 
+            screen.width,
             title = "Node List")
 
         self._list_box = MultiColumnListBox(
-            height=screen.height,
-            columns=["<0", "21<", "7>", "7>", "7>", "7>"],
+            height=Widget.FILL_FRAME,
+            columns=["<0", ">21", ">7", ">7", ">7", ">7"],
             options=None,
             titles=["Name", "Lifecycle state", "Pubs", "(Subd)", "Subs", "(Pubd)"])
         
-        layout = Layout(columns=[1], fill_frame=True)
+        layout = Layout(columns=[100], fill_frame=True)
         self.add_layout(layout)
         layout.add_widget(self._list_box)
         
@@ -38,3 +38,4 @@ class NodeListView(Frame):
             ], index))
         
         self._list_box.options = options
+        self.fix()

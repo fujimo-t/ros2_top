@@ -6,6 +6,8 @@ from asciimatics.scene import Scene
 from ros2top.view.node_list_view import NodeListView
 from ros2top.model.node_list_model import NodeListModel
 
+import pprint
+
 class Ros2Top(Node):
     def __init__(self):
         super().__init__('ros2_top')
@@ -14,7 +16,7 @@ class Ros2Top(Node):
             model = NodeListModel(self)
             view.update_model(model)
 
-            print(model)
+            self.get_logger().info(pprint.pformat(model.node_list))
 
             screen.play([Scene([view], -1)])
 
