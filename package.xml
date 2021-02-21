@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>ros2_top</name>
+  <name>ros2top</name>
   <version>0.0.0</version>
   <description>Top-like monitoring tool for ROS2</description>
   <maintainer email="broadbarredfirefish@gmail.com">Hironori Fujimoto</maintainer>

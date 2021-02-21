@@ -1,7 +1,7 @@
 from setuptools import find_packages
 from setuptools import setup
 
-package_name = 'ros2_top'
+package_name = 'ros2top'
 
 setup(
     name=package_name,
