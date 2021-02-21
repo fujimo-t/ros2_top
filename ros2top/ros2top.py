@@ -1,3 +1,5 @@
+from threading import Thread
+
 import rclpy
 from rclpy.node import Node
 from rcl_interfaces.msg import IntegerRange, ParameterDescriptor, ParameterType
@@ -12,17 +14,31 @@ class Ros2Top(Node):
     def __init__(self):
         super().__init__('ros2top')
 
-        update_rate = self.declare_parameter('update_rate', 1, ParameterDescriptor(
+        list_update_rate = self.declare_parameter('list_update_rate', 1, ParameterDescriptor(
             type=ParameterType.PARAMETER_INTEGER,
-            description='Update rate for list by seconds',
+            description='Update rate[Hz] of data in list',
             integer_range=[IntegerRange(from_value=1, to_value=20, step=1)]))
+        
+        frame_rate = self.declare_parameter('frame_rate', 20, ParameterDescriptor(
+            type=ParameterType.PARAMETER_INTEGER,
+            description='Frame rate[Hz] used to draw and handle input event',
+            integer_range=[IntegerRange(from_value=1, to_value=20, step=1)]))
+
+        # spin on another thread
+        thread = Thread(target=rclpy.spin, args=(self,), daemon=True)
+        thread.start()
+        
+        rate = self.create_rate(frame_rate.value)
 
         with ManagedScreen() as screen:
             view = NodeListView(screen)
             model = NodeListModel(self)
             view.update_model(model)
 
-            screen.play([Scene([view], -1)])
+            screen.set_scenes([Scene([view], -1)])
+            while True:
+                screen.draw_next_frame()
+                rate.sleep()
 
 def main(args=None):
     rclpy.init(args = args);
