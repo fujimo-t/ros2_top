@@ -27,9 +27,7 @@ class NodeListView(Frame):
         options = []
         for (index, node_summary) in enumerate(model.node_list):
             name = node_summary.name.full_name
-            state_label = node_summary.has_lifecycle 
-                ? node_summary.state.state_label
-                : "No lifecycle"
+            state_label = node_summary.state.state_label if node_summary.has_lifecycle else "No lifecycle"
             options.append(([
                 node_summary.name.full_name,
                 state_label,
@@ -37,7 +35,6 @@ class NodeListView(Frame):
                 node_summary.connected_publish_topic_count,
                 node_summary.subscribe_topic_count,
                 node_summary.connected_subscribe_topic_count
-            ], index)
+            ], index))
         
         self._list_box.options = options
-        
