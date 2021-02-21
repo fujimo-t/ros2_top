@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'ros2_top = ros2_top.ros2_top:main',
+            'ros2top = ros2top.ros2top:main',
         ],
     },
 )

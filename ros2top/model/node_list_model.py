@@ -8,7 +8,7 @@ class NodeListModel:
         self._node = node
         self.node_list = []
 
-        for node_name in ros2node.api.get_node_names(node):
+        for node_name in ros2node.api.get_node_names(node=node):
             node_info = NodeSummaryModel(node, node_name)
             self.node_list.append(node_info)
 
@@ -20,18 +20,18 @@ class NodeSummaryModel:
         self.name = node_name
 
         # Count publish topics
-        publish_topics = ros2node.api.get_publisher_info(node, self.name.full_name)
+        publish_topics = ros2node.api.get_publisher_info(node=node, remote_node_name=self.name.full_name)
         self.publish_topic_count = len(publish_topics)
         self.connected_publish_topic_count = len([
             publish_topic for publish_topic in publish_topics 
-            if node.count_subscribers(publish_topic.topic_name) > 0])
+            if node.count_subscribers(publish_topic.name) > 0])
 
         # Count subscribe topics
-        subscribe_topics = ros2node.api.get_subscriber_info(node, self.name.full_name)
+        subscribe_topics = ros2node.api.get_subscriber_info(node=node, remote_node_name=self.name.full_name)
         self.subscribe_topic_count = len(subscribe_topics)
         self.connected_subscribe_topic_count = len([
             subscribe_topic for subscribe_topic in subscribe_topics 
-            if node.count_publishers(subscribe_topic.topic_name) > 0])
+            if node.count_publishers(subscribe_topic.name) > 0])
 
         # Check lifecycle
         services = node.get_service_names_and_types_by_node(self.name.name, self.name.namespace)

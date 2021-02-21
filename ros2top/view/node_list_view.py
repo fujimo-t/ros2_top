@@ -11,19 +11,20 @@ class NodeListView(Frame):
             screen.height,
             title = "Node List")
 
-        layout = Layout(columns=[1], fill_flame=True)
         self._list_box = MultiColumnListBox(
-            height=self.height,
+            height=screen.height,
             columns=["<0", "21<", "7>", "7>", "7>", "7>"],
             options=None,
             titles=["Name", "Lifecycle state", "Pubs", "(Subd)", "Subs", "(Pubd)"])
-        layout.add_widget(self._list_box)
+        
+        layout = Layout(columns=[1], fill_frame=True)
         self.add_layout(layout)
+        layout.add_widget(self._list_box)
+        
         
         self.fix()
 
-    def update(self):
-        model = NodeListModel()
+    def update(self, model: NodeListModel):
         options = []
         for (index, node_summary) in enumerate(model.node_list):
             name = node_summary.name.full_name
