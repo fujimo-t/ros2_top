@@ -21,21 +21,20 @@ class NodeListView(Frame):
         self.add_layout(layout)
         layout.add_widget(self._list_box)
         
-        
         self.fix()
 
-    def update(self, model: NodeListModel):
+    def update_model(self, model: NodeListModel):
         options = []
-        for (index, node_summary) in enumerate(model.node_list):
+        for index, node_summary in enumerate(model.node_list):
             name = node_summary.name.full_name
             state_label = node_summary.state.state_label if node_summary.has_lifecycle else "No lifecycle"
             options.append(([
                 node_summary.name.full_name,
                 state_label,
-                node_summary.publish_topic_count,
-                node_summary.connected_publish_topic_count,
-                node_summary.subscribe_topic_count,
-                node_summary.connected_subscribe_topic_count
+                str(node_summary.publish_topic_count),
+                str(node_summary.connected_publish_topic_count),
+                str(node_summary.subscribe_topic_count),
+                str(node_summary.connected_subscribe_topic_count)
             ], index))
         
         self._list_box.options = options
