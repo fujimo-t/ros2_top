@@ -14,7 +14,11 @@
 
 ## TODO
 
-* View for node list
-* Node detail
 * Lifecycle state change
+* Node detail
+* Lists switcher
 * Topic, service, action, tf list/detail
+
+## DONE
+
+* Node list
