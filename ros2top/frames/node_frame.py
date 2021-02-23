@@ -4,9 +4,9 @@ from asciimatics.widgets import Frame, MultiColumnListBox, Layout, Widget
 from rclpy.node import Node
 from ros2top.widgets.node_list import NodeList
 
-class NodeListFrame(Frame):
+class NodeFrame(Frame):
     def __init__(self, node: Node, list_update_frames: int, screen: Screen):
-        super(NodeListFrame, self).__init__(
+        super().__init__(
             screen,
             screen.height, 
             screen.width,

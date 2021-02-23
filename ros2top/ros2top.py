@@ -7,7 +7,7 @@ from rcl_interfaces.msg import IntegerRange, ParameterDescriptor, ParameterType
 from asciimatics.screen import ManagedScreen
 from asciimatics.scene import Scene
 
-from ros2top.frames.node_list import NodeListFrame
+from ros2top.frames.node_frame import NodeFrame
 
 class Ros2Top(Node):
     def __init__(self):
@@ -31,7 +31,7 @@ class Ros2Top(Node):
 
         with ManagedScreen() as screen:
             screen.set_scenes([Scene([
-                NodeListFrame(self, list_update_frames.value, screen)], -1)])
+                NodeFrame(self, list_update_frames.value, screen)], -1)])
             while rclpy.ok():
                 screen.draw_next_frame()
                 rate.sleep()

@@ -1,6 +1,6 @@
 from asciimatics.widgets import MultiColumnListBox
 from rclpy.node import Node
-from ros2top.models.node_list import NodeListModel
+from ros2top.models.node_list_model import NodeListModel
 
 class NodeList(MultiColumnListBox):
     """
