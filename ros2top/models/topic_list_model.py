@@ -10,7 +10,7 @@ class TopicListModel:
         names_and_types = ros2topic.api.get_topic_names_and_types(node=node)
         
         for (name, types) in names_and_types:
-            list.append(TopicSummary(
+            self.list.append(TopicSummary(
                 name,
                 types,
                 node.count_publishers(name),
