@@ -18,6 +18,7 @@
 * Node detail
 * Lists switcher
 * Topic, service, action, tf list/detail
+* Adapt to resizing
 
 ## DONE
 

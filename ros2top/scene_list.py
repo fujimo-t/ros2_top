@@ -6,6 +6,7 @@ from typing import Sized
 
 from rclpy.node import Node
 from ros2top.frames.node_frame import NodeFrame
+from ros2top.frames.topic_frame import TopicFrame
 
 
 SceneInfo = namedtuple('SceneInfo', ['name', 'frame_class'])
@@ -18,6 +19,7 @@ class SceneList:
     # Tabs are displayed by this order
     scene_info_list = [
         SceneInfo('Node', NodeFrame),
+        SceneInfo('Topic', TopicFrame)
     ]
 
     @classmethod

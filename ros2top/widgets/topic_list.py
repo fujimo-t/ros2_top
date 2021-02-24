@@ -41,7 +41,7 @@ class TopicList(MultiColumnListBox):
                 type_str += ' and ' + type_count + ' types'
             options.append(([
                 topic_summary.name,
-                type_srt,
+                type_str,
                 str(topic_summary.publisher_count),
                 str(topic_summary.subscriber_count),
             ], index))
