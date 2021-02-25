@@ -1,11 +1,13 @@
 from asciimatics.scene import Scene
 from asciimatics.screen import Screen
+from asciimatics.exceptions import NextScene
 
 from collections import namedtuple
 from typing import Sized
 
 from rclpy.node import Node
 from ros2top.frames.node_frame import NodeFrame
+from ros2top.frames.service_frame import ServiceFrame
 from ros2top.frames.topic_frame import TopicFrame
 
 
@@ -19,7 +21,8 @@ class SceneList:
     # Tabs are displayed by this order
     scene_info_list = [
         SceneInfo('Node', NodeFrame),
-        SceneInfo('Topic', TopicFrame)
+        SceneInfo('Topic', TopicFrame),
+        SceneInfo('Service', ServiceFrame)
     ]
 
     @classmethod
@@ -38,3 +41,7 @@ class SceneList:
             scenes.append(scene)
         
         return scenes
+
+    @classmethod
+    def next_scene(cls, screen: Screen) -> None:
+        raise NextScene()
