@@ -18,6 +18,11 @@ class Ros2Top(Node):
             type=ParameterType.PARAMETER_INTEGER,
             description='Update list every this frames. So, update rate of the list is 20(asciimatics frame rate) / list_update_frames.',
             integer_range=[IntegerRange(from_value=1, to_value=20, step=1)]))
+        
+        initial_scene = self.declare_parameter('initial_scene', "Node", ParameterDescriptor(
+            type=ParameterType.PARAMETER_STRING,
+            description='Initial scene. Node or Topic or Service or Action.',
+            integer_range=[IntegerRange(from_value=1, to_value=20, step=1)]))
 
         # spin on another thread
         thread = Thread(target=rclpy.spin, args=(self,), daemon=True)
