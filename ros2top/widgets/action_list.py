@@ -1,6 +1,7 @@
 from asciimatics.widgets import MultiColumnListBox
 from rclpy.node import Node
-import ros2service.api
+import ros2action.api
+import rclpy.action.graph
 
 class ActionList(MultiColumnListBox):
     def __init__(self, node: Node, height: int, frame_update_count: int):
@@ -27,7 +28,7 @@ class ActionList(MultiColumnListBox):
         super().update(frame_no)
 
     def _update_options(self):
-        action_names_and_types = ros2action.api.get_service_names_and_types(self._node)
+        action_names_and_types = rclpy.action.graph.get_action_names_and_types(node=self._node)
         options = []
 
         for index, (name, types) in enumerate(action_names_and_types):

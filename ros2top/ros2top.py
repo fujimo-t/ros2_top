@@ -22,7 +22,7 @@ class Ros2Top(Node):
         initial_scene = self.declare_parameter('initial_scene', "Node", ParameterDescriptor(
             type=ParameterType.PARAMETER_STRING,
             description='Initial scene. Node or Topic or Service or Action.',
-            integer_range=[IntegerRange(from_value=1, to_value=20, step=1)]))
+        ))
 
         # spin on another thread
         thread = Thread(target=rclpy.spin, args=(self,), daemon=True)
@@ -30,7 +30,7 @@ class Ros2Top(Node):
 
         with ManagedScreen() as screen:
             scenes = SceneList.scenes(self, list_update_frames.value, screen)
-            screen.play(scenes)
+            screen.play(scenes, start_scene=initial_scene.value)
             
 def main(args=None):
     rclpy.init(args = args);

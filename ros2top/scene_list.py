@@ -23,7 +23,7 @@ class SceneList:
     scene_info_list = [
         SceneInfo('Node', NodeFrame),
         SceneInfo('Topic', TopicFrame),
-        SceneInfo('Service', ServiceFrame)
+        SceneInfo('Service', ServiceFrame),
         SceneInfo('Action', ActionFrame)
     ]
 
