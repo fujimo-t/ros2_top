@@ -6,6 +6,7 @@ from collections import namedtuple
 from typing import Sized
 
 from rclpy.node import Node
+from ros2top.frames.action_frame import ActionFrame
 from ros2top.frames.node_frame import NodeFrame
 from ros2top.frames.service_frame import ServiceFrame
 from ros2top.frames.topic_frame import TopicFrame
@@ -23,6 +24,7 @@ class SceneList:
         SceneInfo('Node', NodeFrame),
         SceneInfo('Topic', TopicFrame),
         SceneInfo('Service', ServiceFrame)
+        SceneInfo('Action', ActionFrame)
     ]
 
     @classmethod
