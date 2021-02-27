@@ -7,13 +7,10 @@ def add_tab_indicator_layout(frame: Frame):
     """
     Add a layout which contains top labels to frame
     """
-
     columns = [1] * SceneList.count()
     layout = Layout(columns)
     frame.add_layout(layout)
 
     for i, scene_info in enumerate(SceneList.scene_info_list):
-        label = Label(scene_info.name)
-        if frame == scene_info.frame_class:
-            label.custom_colour = "selected_field"
-        layout.add_widget(label, i)
+        label = '{}[{}]'.format(scene_info.name, scene_info.shortcut.name)
+        layout.add_widget(Label(label), i)
