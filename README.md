@@ -14,12 +14,12 @@
 
 ## TODO
 
-* Lifecycle state change
-* Node detail
-* Lists switcher
-* Topic, service, action, tf list/detail
+* Detail scenes for each list
+* Actions for each list (e.g. change node state, echo topic)
+* Topic, service, action list/detail
 * Adapt to resizing
+* tf?
 
 ## DONE
 
-* Node list
+* Node, topic, service, action list
