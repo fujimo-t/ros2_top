@@ -27,6 +27,8 @@
 * horizontal scroll
 * Dynamic columns width
 * Sort
+* Change switch mechanism from scene to frame
+* Tab selector widget 
 
 ## DONE
 
