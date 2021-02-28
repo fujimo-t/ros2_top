@@ -23,13 +23,13 @@ class BaseScene(Scene, ABC):
         super().__init__([], -1, name=name.value)
 
         self.node = node
-        self.frame = Frame(screen, screen.height, screen.width, name=name.value+'Frame', title=name.value)
+        self.frame = Frame(screen, screen.height * 2, screen.width, name=name.value+'Frame', title=name.value, x=0, y=0)
         self.add_effect(self.frame)
 
         # Add global shortcut list to top
         shortcuts_layout = Layout([1])
         self.frame.add_layout(shortcuts_layout)
-        shortcuts_label = 'Move to: '
+        shortcuts_label = 'Switch list to: '
         for shortcut in SCENE_SHORTCUT_LIST:
             shortcuts_label += '{}[{}] '.format(shortcut.scene_name.value, shortcut.key_name)
         shortcuts_layout.add_widget(Label(shortcuts_label))

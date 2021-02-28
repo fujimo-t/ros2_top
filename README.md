@@ -17,8 +17,16 @@
 * Detail scenes for each list
 * Actions for each list (e.g. change node state, echo topic)
 * Topic, service, action list/detail
-* Adapt to resizing
 * tf?
+* change asciimatics theme
+* More similar appearance to top/htop
+* Mouse support
+
+### Lists
+
+* horizontal scroll
+* Dynamic columns width
+* Sort
 
 ## DONE
 
