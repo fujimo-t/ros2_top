@@ -13,7 +13,6 @@ from ros2top.scenes.action_scene import ActionScene
 from ros2top.scenes.node_scene import NodeScene
 from ros2top.scenes.service_scene import ServiceScene
 from ros2top.scenes.topic_scene import TopicScene
-from ros2top.shortcuts import SCENE_SHORTCUT_LIST, SceneShortcut
 
 class Ros2Top(Node):
     def __init__(self):
@@ -47,16 +46,9 @@ class Ros2Top(Node):
         ]
         screen.play(
             scenes, 
-            unhandled_input=self.handle_global_shortcuts,
             stop_on_resize=True,
             start_scene=start_scene)
     
-    def handle_global_shortcuts(self, event: Event) -> None:
-        if isinstance(event, KeyboardEvent):
-            keycode = event.key_code
-            for scene_shortcut in SCENE_SHORTCUT_LIST:
-                if keycode == scene_shortcut.key_code:
-                    raise NextScene(scene_shortcut.scene_name.value)
             
 def main(args=None):
     rclpy.init(args = args)

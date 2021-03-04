@@ -20,7 +20,7 @@
 * tf?
 * change asciimatics theme
 * More similar appearance to top/htop
-* Mouse support
+* Shortcuts
 
 ### Lists
 
@@ -28,8 +28,7 @@
 * Dynamic columns width
 * Sort
 * Change switch mechanism from scene to frame
-* Tab selector widget 
 
-## DONE
+## Memo
 
-* Node, topic, service, action list
+* According manner of asciimatics
