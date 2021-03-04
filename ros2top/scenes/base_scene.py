@@ -23,8 +23,16 @@ class BaseScene(Scene, ABC):
         super().__init__([], -1, name=name.value)
 
         self.node = node
-        self.frame = Frame(screen, screen.height, screen.width, name=name.value+'Frame', title=name.value, x=0, y=0)
-        self.add_effect(self.frame)
+
+        top_frame_height = 3
+        bottom_frame_height = 3
+        main_frame_height = screen.height - (top_frame_height + bottom_frame_height)
+
+        # Add list switcher to top frame
+        y = 0
+        top_frame = Frame(screen, top_frame_height, screen.width, name='TopFrame', title='List select', y=y)
+        y += top_frame_height
+        self.add_effect(top_frame)
 
         list_scenes = [
             SceneNames.NODE, 
@@ -33,13 +41,9 @@ class BaseScene(Scene, ABC):
             SceneNames.ACTION
         ]
 
-        # Add list switcher to top
-        top_layout = Layout([1] * (len(list_scenes) + 1))
-        self.frame.add_layout(top_layout)
-        top_layout.add_widget(Label('Switch list to:'), column=0)
-        for column, scene in enumerate(list_scenes, 1):
-            
-            # Closure
+        top_layout = Layout([1] * (len(list_scenes)))
+        top_frame.add_layout(top_layout)
+        for column, scene in enumerate(list_scenes):
             def raise_next_to(scene_name: SceneNames):
                 def raise_next():
                     raise NextScene(scene_name.value)
@@ -49,4 +53,12 @@ class BaseScene(Scene, ABC):
                 scene.value,
                 raise_next_to(scene)
             ), column)
+        top_frame.fix()
+
+        self.main_frame = Frame(screen, main_frame_height, screen.width, name='MainFrame', title=name.value, y=y)
+        self.add_effect(self.main_frame)
+        y += main_frame_height
+        
+        self.bottom_frame = Frame(screen, bottom_frame_height, screen.width, name="BottomFrame", title='Commands', y=y)
+        self.add_effect(self.bottom_frame)
 

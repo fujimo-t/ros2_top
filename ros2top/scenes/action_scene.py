@@ -21,11 +21,11 @@ class ActionScene(BaseScene):
         super().__init__(SceneNames.ACTION, node, screen)
 
         layout = Layout(columns=[1], fill_frame=True)
-        self.frame.add_layout(layout)
+        self.main_frame.add_layout(layout)
         layout.add_widget(ActionList(
             node=node,
             height=Widget.FILL_FRAME,
             frame_update_count=list_update_frames
         ))
         
-        self.frame.fix()
+        self.main_frame.fix()
