@@ -1,6 +1,6 @@
 from enum import Enum
 
-class SceneNames(Enum):
+class SceneName(Enum):
     ACTION = 'Action'
     NODE = 'Node'
     SERVICE = 'Service'
