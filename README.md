@@ -42,5 +42,6 @@
   * publish
 * node list
   * info
+  * state change
 * services list
   * call
