@@ -10,9 +10,9 @@ class NodeList(MultiColumnListBox):
     def __init__(self, node: Node, height: int, frame_update_count: int):
         super().__init__(
             height, 
-            columns=["<0", "<21", ">5", ">7", ">5", ">7"],
+            columns=["<0", "<21", ">4", ">7", ">4", ">7"],
             options=None,
-            titles=["Name", "Lifecycle", "Pubs", "(Subd)", "Subs", "(Pubd)"])
+            titles=["Node name", "Lifecycle", "Pub", "(Subd)", "Sub", "(Pubd)"])
         
         self._node = node
         self._frame_update_count = frame_update_count

@@ -11,9 +11,9 @@ class TopicList(MultiColumnListBox):
         
         super().__init__(
             height, 
-            columns=['<50%', '<50%', '>5', '>5'],
+            columns=['<50%', '<0', '>4', '>4'],
             options=None,
-            titles=['Name', 'Types', 'Pubs', 'Subs'])
+            titles=['Topic name', 'Types', 'Pub', 'Sub'])
         
         self._node = node
         self._frame_update_count = frame_update_count

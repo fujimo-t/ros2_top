@@ -7,9 +7,9 @@ class ActionList(MultiColumnListBox):
     def __init__(self, node: Node, height: int, frame_update_count: int):
         super().__init__(
             height, 
-            columns=["<20", "<0"],
+            columns=["<50%", "<0"],
             options=None,
-            titles=["Name", "Types"])
+            titles=["Action name", "Types"])
         
         self._node = node
         self._frame_update_count = frame_update_count
