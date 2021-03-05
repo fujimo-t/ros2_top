@@ -16,11 +16,11 @@
 
 * Detail scenes for each list
 * Actions for each list (e.g. change node state, echo topic)
-* Topic, service, action list/detail
 * tf?
 * change asciimatics theme
 * More similar appearance to top/htop
-* Shortcuts
+* How to manage state
+* history
 
 ### Lists
 
@@ -31,4 +31,16 @@
 
 ## Memo
 
-* According manner of asciimatics
+### Frames
+
+* action list
+  * info
+  * send_goal
+* topic list
+  * info
+  * echo/hz/bandwidth/delay
+  * publish
+* node list
+  * info
+* services list
+  * call
