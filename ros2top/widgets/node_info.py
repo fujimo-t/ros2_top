@@ -1,7 +1,9 @@
 from asciimatics.parsers import AsciimaticsParser
 from asciimatics.widgets import ListBox
-from ros2top.models.node_info_model import NodeInfoModel
+
 from ros2node.api import TopicInfo
+from ros2top.models.node_info_model import NodeInfoModel
+
 from enum import auto, Enum
 from typing import Callable, Tuple
 
@@ -21,11 +23,12 @@ class NodeInfo(ListBox):
 
     TODO: Link to other info scene by select topic, service, action names.
     """
-    def __init__(self, height: int, model: NodeInfoModel, on_change: Callable, on_select: Callable):
-        if 
-        super().__init__(height, parser=AsciimaticsParser())
-
+    def __init__(self, height: int, model: NodeInfoModel, on_change: Callable):
+        super().__init__(height, options=[], name='NodeInfoWidget', parser=AsciimaticsParser(),
+                         on_change=on_change)
         
+        if model != None:
+            self.set_model(model)
 
     def _model_to_option(self, model: NodeInfoModel) -> list[Tuple[str, NodeInfoOption]]:
         options = []
@@ -55,5 +58,5 @@ class NodeInfo(ListBox):
             label = '  ' + f'${{{fg},{attr},{bg}}}' + topic.name + ', '.join(topic.types)
             options.append((label, NodeInfoOption(type, topic.name)))
 
-        
-            
+    def set_model(self, model: NodeInfoModel):
+        self.options = self._model_to_option(model)
