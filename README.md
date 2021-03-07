@@ -33,9 +33,9 @@
 * services
   * call
 
-
 ### Lists
 
+* Filtering
 * horizontal scroll
 * Dynamic columns width
 * Sort
