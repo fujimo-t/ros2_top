@@ -1,15 +1,23 @@
 # WIP: Top-like monitoring tool for ROS2
 
+## Implemented features
+
+* List of node/topic/service/action
+* Node info
+
+## Dependencies
+
+* ROS2 Foxy
+* [asciimatics](https://github.com/peterbrittain/asciimatics)
+
+## Install
+
+Clone to colcon workspace and build
+
 ## Related tools
 
 * [rqt_top](https://github.com/ros-visualization/rqt_top)
 * [rosmon](https://github.com/xqms/rosmon)
-* [ros2cli](https://github.com/ros2/ros2cli)
-
-## API References
-
-* [asciimatics](https://github.com/peterbrittain/asciimatics)
-* [rclpy](https://github.com/ros2/rclpy)
 * [ros2cli](https://github.com/ros2/ros2cli)
 
 ## TODO
