@@ -5,3 +5,4 @@ class SceneName(Enum):
     NODE = 'Node'
     SERVICE = 'Service'
     TOPIC = 'Topic'
+    NODEINFO = 'NodeInfo'

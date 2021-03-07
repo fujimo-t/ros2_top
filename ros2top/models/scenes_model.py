@@ -14,3 +14,5 @@ class ScenesModel:
             integer_range=[IntegerRange(from_value=1, to_value=20, step=1)]
         )).value
 
+        self.selected_node = None
+

@@ -23,7 +23,7 @@ class NodeInfo(ListBox):
 
     TODO: Link to other info scene by select topic, service, action names.
     """
-    def __init__(self, height: int, model: NodeInfoModel, on_change: Callable):
+    def __init__(self, height: int, model: NodeInfoModel=None, on_change: Callable=None):
         super().__init__(height, options=[], name='NodeInfoWidget', parser=AsciimaticsParser(),
                          on_change=on_change)
         
