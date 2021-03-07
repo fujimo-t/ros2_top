@@ -1,6 +1,7 @@
 from asciimatics.widgets import MultiColumnListBox
 from rclpy.node import Node
 from ros2top.models.node_list_model import NodeListModel
+from typing import Callable
 
 class NodeList(MultiColumnListBox):
     """
@@ -34,7 +35,7 @@ class NodeList(MultiColumnListBox):
         model = NodeListModel(self._node)
         options = []
 
-        for index, node_summary in enumerate(model.node_list):
+        for node_summary in model.node_list:
             name = node_summary.name.full_name
             state_label = node_summary.state.state_label if node_summary.has_lifecycle else "None"
             options.append(([
@@ -44,6 +45,6 @@ class NodeList(MultiColumnListBox):
                 str(node_summary.connected_publish_topic_count),
                 str(node_summary.subscribe_topic_count),
                 str(node_summary.connected_subscribe_topic_count)
-            ], index))
+            ], node_summary.name))
 
         self.options = options

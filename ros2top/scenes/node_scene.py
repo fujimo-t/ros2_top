@@ -1,3 +1,4 @@
+from asciimatics.exceptions import NextScene
 from asciimatics.screen import Screen
 from asciimatics.widgets import Frame, MultiColumnListBox, Layout, Widget
 
@@ -21,10 +22,16 @@ class NodeScene(BaseScene):
         
         layout = Layout(columns=[1], fill_frame=True)
         self.frame.add_layout(layout)
-        layout.add_widget(NodeList(
+        self._node_list_widget = NodeList(
             node=model.node,
             height=Widget.FILL_FRAME,
-            frame_update_count=model.list_update_frames
-        ))
-        
+            frame_update_count=model.list_update_frames,
+        )
+        layout.add_widget(self._node_list_widget)
+        self.frame.add_bottom_layout([('Info', self._show_info)])
+
         self.frame.fix()
+
+    def _show_info(self):
+        self.model.selected_node = self._node_list_widget.value
+        raise NextScene(SceneName.NODEINFO.value)
