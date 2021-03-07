@@ -19,7 +19,7 @@ class Ros2Top():
         node = Node('ros2top')
 
         # spin on another thread
-        thread = Thread(target=rclpy.spin, args=(node), daemon=True)
+        thread = Thread(target=rclpy.spin, args=(node,), daemon=True)
         thread.start()
 
         self.model = ScenesModel(node)
