@@ -14,34 +14,28 @@
 
 ## TODO
 
-* Detail scenes for each list
 * Actions for each list (e.g. change node state, echo topic)
-* tf?
 * change asciimatics theme
-* More similar appearance to top/htop
-* How to manage state
 * history
+* Shortcut keys
+
+### Scenes
+
+* action
+  * info
+  * send_goal
+* topic
+  * info
+  * echo/hz/bandwidth/delay
+  * publish
+* node
+  * state change
+* services
+  * call
+
 
 ### Lists
 
 * horizontal scroll
 * Dynamic columns width
 * Sort
-* Change switch mechanism from scene to frame
-
-## Memo
-
-### Frames
-
-* action list
-  * info
-  * send_goal
-* topic list
-  * info
-  * echo/hz/bandwidth/delay
-  * publish
-* node list
-  * info
-  * state change
-* services list
-  * call
