@@ -31,7 +31,7 @@ class NodeInfo(ListBox):
         if model != None:
             self.set_model(model)
 
-    def _model_to_option(self, model: NodeInfoModel) -> List[Tuple[str, NodeInfoOption]]:
+    def _model_to_options(self, model: NodeInfoModel) -> List[Tuple[str, NodeInfoOption]]:
         options = []
 
         # Add topics to options
@@ -62,4 +62,4 @@ class NodeInfo(ListBox):
             options.append((label, NodeInfoOption(option_type, topic.name)))
 
     def set_model(self, model: NodeInfoModel):
-        self.options = self._model_to_option(model)
+        self.options = self._model_to_options(model)
