@@ -1,6 +1,19 @@
-from rclpy.node import Node
 import rclpy.action
+from rclpy.node import Node
+
 import ros2node.api
+
+from enum import auto, Enum
+from typing import List, NamedTuple
+
+class ActionEndPointType(Enum):
+    SERVER = auto()
+    CLIENT = auto()
+
+class ActionEndPoint(NamedTuple):
+    node_name: str
+    action_types: List[str]
+    endpoint_type: ActionEndPointType
 
 class ActionInfoModel():
     """
@@ -13,14 +26,14 @@ class ActionInfoModel():
 
         node_names = ros2node.api.get_node_names(node=node)
         for node_name in node_names:
-            clients = rclpy.action.get_action_client_names_and_types_by_node(
+            clients_in_node = rclpy.action.get_action_client_names_and_types_by_node(
                 node, node_name.name, node_name.namespace)
-            self.clients.extend([
-                (node_name, client[1]) for client in clients if client[0] == self.name
+            self.clients.extend([ActionEndPoint(node_name.full_name, types, ActionEndPointType.CLIENT) 
+                for (action_name, types) in clients_in_node if action_name == self.name
             ])
 
-            servers = rclpy.action.get_action_server_names_and_types_by_node(
+            servers_in_node = rclpy.action.get_action_server_names_and_types_by_node(
                 node, node_name.name, node_name.namespace)
-            self.servers.extend([
-                (node_name, server[1]) for server in servers if server[0] == self.name
+            self.servers.extend([ActionEndPoint(node_name.full_name, types, ActionEndPointType.SERVER)
+                for (action_name, types) in servers_in_node if action_name == self.name
             ])
