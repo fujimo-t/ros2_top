@@ -16,11 +16,11 @@ class ActionInfoModel():
             clients = rclpy.action.get_action_client_names_and_types_by_node(
                 node, node_name.name, node_name.namespace)
             self.clients.extend([
-                client for client in clients if client[0] == self.name
+                (node_name, client[1]) for client in clients if client[0] == self.name
             ])
 
             servers = rclpy.action.get_action_server_names_and_types_by_node(
                 node, node_name.name, node_name.namespace)
             self.servers.extend([
-                server for server in servers if server[0] == self.name
+                (node_name, server[1]) for server in servers if server[0] == self.name
             ])
