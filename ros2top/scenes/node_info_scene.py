@@ -16,7 +16,7 @@ class NodeInfoScene(BaseScene):
         :param screen: The screen will play this scene.
         :param model: All data to display scenes. 
         """
-        super().__init__(SceneName.NODEINFO, model, screen)
+        super().__init__(SceneName.NODE_INFO, model, screen)
 
         self.frame._on_load = self.load_node_info
 

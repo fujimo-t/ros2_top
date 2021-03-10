@@ -34,4 +34,4 @@ class NodeScene(BaseScene):
 
     def _show_info(self):
         self.model.selected_node = self._node_list_widget.value
-        raise NextScene(SceneName.NODEINFO.value)
+        raise NextScene(SceneName.NODE_INFO.value)

@@ -15,7 +15,7 @@ class ActionInfoOption():
     index: int
 
 class ActionInfo(ListBox):
-    def __init__(self, height: int, model: ActionInfoModel):
+    def __init__(self, height: int, model: ActionInfoModel=None):
         super().__init__(height, options=[], name='ActionInfoWidget')
 
         if model != None:

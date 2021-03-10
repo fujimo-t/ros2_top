@@ -15,4 +15,4 @@ class ScenesModel:
         )).value
 
         self.selected_node = None
-
+        self.selected_action = None
