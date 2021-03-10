@@ -21,7 +21,7 @@ class ActionInfo(ListBox):
         if model != None:
             self.set_model(model)
         
-    def _model_to_options(self, model: ActionInfoModel) -> List[Tuple(str, ActionINfoOption)]:
+    def _model_to_options(self, model: ActionInfoModel) -> List[Tuple[str, ActionInfoOption]]:
         options = []
         self._append_label_option('Servers: ', options)
         self._append_elements_to_options(model.servers, options)
@@ -34,10 +34,10 @@ class ActionInfo(ListBox):
     def _append_elements_to_options(self, endpoints: List[ActionEndPoint], 
         options: List[Tuple[str, ActionInfoOption]]) -> None:
         for action_endpoint in endpoints:
-            option_type = ActionInfoOptionType.SERVER if action_endpoint.endpoint_type == ActionEndPointType.SERVER 
-                else ActionEndPointType.CLIENT
+            option_type = ActionInfoOptionType.SERVER if action_endpoint.endpoint_type == ActionEndPointType.SERVER else ActionEndPointType.CLIENT
             new_option = ActionInfoOptionType(option_type, action_endpoint.node_name, len(options))
-            label = f'  {action_endpoint.node_name} : {','.join(action_endpoint.types)}'
+            type_text = ','.join(action_endpoint.types)
+            label = f'  {action_endpoint.node_name} : {type_text}'
             options.append((action_endpoint.node_name, new_option))
 
     def set_model(self, model: ActionInfoModel):

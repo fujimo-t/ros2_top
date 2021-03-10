@@ -31,14 +31,10 @@ class ActionList(MultiColumnListBox):
         action_names_and_types = rclpy.action.graph.get_action_names_and_types(node=self._node)
         options = []
 
-        for index, (name, types) in enumerate(action_names_and_types):
-            type_str = types[0]
-            type_count = len(types)
-            if (type_count > 1):
-                type_str += ' and ' + type_count + ' types'
+        for name, types in action_names_and_types:
             options.append(([
                 name,
-                type_str
-            ], index))
+                ','.join(type),
+            ], name))
 
         self.options = options

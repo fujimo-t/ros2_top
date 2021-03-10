@@ -9,6 +9,7 @@ from asciimatics.screen import Screen
 from asciimatics.scene import Scene
 
 from ros2top.models.scenes_model import ScenesModel
+from ros2top.scenes.action_info_scene import ActionInfoScene
 from ros2top.scenes.action_scene import ActionScene
 from ros2top.scenes.node_info_scene import NodeInfoScene
 from ros2top.scenes.node_scene import NodeScene
@@ -44,6 +45,7 @@ class Ros2Top():
             ActionScene(screen, self.model),
             ServiceScene(screen, self.model),
             TopicScene(screen, self.model),
+            ActionInfoScene(screen, self.model),
             NodeInfoScene(screen, self.model)
         ]
         screen.play(
