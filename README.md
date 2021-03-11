@@ -13,6 +13,12 @@
 
 Clone to colcon workspace and build
 
+## Run 
+
+```
+$ ros2 run ros2top ros2top
+```
+
 ## Related tools
 
 * [rqt_top](https://github.com/ros-visualization/rqt_top)
