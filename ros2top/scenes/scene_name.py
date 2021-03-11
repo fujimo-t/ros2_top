@@ -7,3 +7,4 @@ class SceneName(Enum):
     NODE_INFO = 'NodeInfo'
     SERVICE = 'Service'
     TOPIC = 'Topic'
+    TOPIC_INFO = 'TopicInfo'

@@ -14,6 +14,7 @@ from ros2top.scenes.action_scene import ActionScene
 from ros2top.scenes.node_info_scene import NodeInfoScene
 from ros2top.scenes.node_scene import NodeScene
 from ros2top.scenes.service_scene import ServiceScene
+from ros2top.scenes.topic_info_scene import TopicInfoScene
 from ros2top.scenes.topic_scene import TopicScene
 
 class Ros2Top():
@@ -46,7 +47,8 @@ class Ros2Top():
             ServiceScene(screen, self.model),
             TopicScene(screen, self.model),
             ActionInfoScene(screen, self.model),
-            NodeInfoScene(screen, self.model)
+            NodeInfoScene(screen, self.model),
+            TopicInfoScene(screen, self.model)
         ]
         screen.play(
             scenes, 

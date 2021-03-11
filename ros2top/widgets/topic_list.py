@@ -35,7 +35,7 @@ class TopicList(MultiColumnListBox):
         model = TopicListModel(self._node)
         options = []
 
-        for index, topic_summary in enumerate(model.list):
+        for topic_summary in model.list:
             type_str = topic_summary.types[0]
             type_count = len(topic_summary.types)
             if (type_count > 1):
@@ -45,6 +45,6 @@ class TopicList(MultiColumnListBox):
                 type_str,
                 str(topic_summary.publisher_count),
                 str(topic_summary.subscriber_count),
-            ], index))
+            ], topic_summary.name))
 
         self.options = options
