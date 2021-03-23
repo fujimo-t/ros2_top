@@ -28,9 +28,6 @@ $ ros2 run ros2top ros2top
 ## TODO
 
 * change asciimatics theme
-* history
-* Shortcut keys
-* Link from info to another info
 
 ### Scenes
 
